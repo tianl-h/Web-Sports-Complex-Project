@@ -55,7 +55,7 @@ Your website will be evaluated based on the following criteria:
 ## Getting Started
 To get started with the application, you will need to have Node.js and MongoDB installed on your machine.
 
-Clone this repository: git clone https://github.com/MohammadiHadi/GPA1-H-Brandeis-Sport-Complex.git   
+Clone this repository: git clone https://github.com/tianl-h/Web-Sports-Complex-Project.git
 Change to the project directory: cd Brandeis_Sport_Complex.   
 Install the dependencies: npm install.   
 Start the application: node index.js.   
