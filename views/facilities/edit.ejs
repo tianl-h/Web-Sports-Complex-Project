@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/facilitiesStyle.css">
+  <title>Edit Facility</title>
+</head>
+<body>
+  <h1>Edit Facility</h1>
+
+  <form action="/facilities/<%= facility._id %>/update?_method=PUT" method="POST" enctype="multipart/form-data">
+
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" value="<%= facility.name %>" required>
+    <br>
+
+    <label for="type">Type:</label>
+    <input type="text" name="type" id="type" value="<%= facility.type %>" required>
+    <br>
+
+    <label for="description">Description:</label>
+    <textarea name="description" id="description" rows="5" required><%= facility.description %></textarea>
+    <br>
+
+    <label for="images">Images:</label>
+    <input type="file" name="images" id="images" accept="image/*" multiple>
+    <br>
+
+    <input type="submit" value="Update Facility">
+  </form>
+  
+  <a href="/facilities">Back to Facilities</a>
+</body>
+</html>

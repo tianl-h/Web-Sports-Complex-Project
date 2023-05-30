@@ -1,0 +1,47 @@
+<form method="POST" action="<%= postLink %>">
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            placeholder="Enter program name"
+            required
+        />
+    </div>
+    <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea
+            class="form-control"
+            id="description"
+            name="description"
+            placeholder="Enter description"
+            rows="3"
+            required
+        ></textarea>
+    </div>
+    <div class="form-group">
+        <label for="schedule">Schedule:</label>
+        <input
+            type="text"
+            class="form-control"
+            id="schedule"
+            name="schedule"
+            placeholder="Enter schedule"
+            required
+        />
+    </div>
+    <div class="form-group">
+        <label for="instructor">Instructor:</label>
+        <input
+            type="text"
+            class="form-control"
+            id="instructor"
+            name="instructor"
+            placeholder="Enter instructor"
+            required
+        />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

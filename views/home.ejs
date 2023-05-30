@@ -1,0 +1,261 @@
+<title>Brandeis Sports Complex</title>
+<%- contentFor('headerCss')%>
+<link rel="stylesheet" href="/css/homeStyle.css" />
+<meta
+    name="description"
+    content="Welcome to our brandeis sports complex home page!"
+/>
+<meta
+    name="keywords"
+    content="Sports Complex, Brandeis, fitness, recreation, community"
+/>
+<%- contentFor('headerSEO') %> <%- contentFor('body')%>
+
+<section id="showcase">
+    <div class="container">
+        <h1>Welcome to the Brandeis Sports Complex!</h1>
+
+        <section class="text-left">
+            <h2>State-of-the-Art Facilities</h2>
+            <ul>
+                <li>Indoor and outdoor tennis courts</li>
+                <li>Basketball and volleyball courts</li>
+                <li>An indoor track and field facility</li>
+                <li>
+                    A modern fitness center with cardio and weight equipment
+                </li>
+                <li>A heated swimming pool</li>
+                And much more!
+            </ul>
+        </section>
+
+        <section class="text-left">
+            <h2>Programs and Services</h2>
+            <ul>
+                <li>Intramural sports leagues and tournaments</li>
+                <li>Group fitness classes and personal training</li>
+                <li>Swim lessons and water aerobics</li>
+                <li>Summer camps and youth programs</li>
+                And more!
+            </ul>
+        </section>
+
+        <section>
+            <h2>Upcoming Events</h2>
+            <ul>
+                <li>
+                    <h3>Tennis Tournament</h3>
+                    <li>Date: 5/5/2023</li>
+                    <li>Location: Outdoor tennis courts</li>
+                </li>
+                <li>
+                    <h3>Charity Sports Event</h3>
+                    <li>Date: 5/19/2023</li>
+                    <li>Location: Indoor basketball court</li>
+                </li>
+                <li>
+                    <h3>Pickleball Tournament</h3>
+                    <li>Date: 6/2/2023</li>
+                    <li>Location: Outdoor pickleball courts</li>
+                </li>
+            </ul>
+        </section> 
+        
+        <section>
+            <h2>Memberships</h2>
+            <ul>
+                <li>Membership benefits include access to all facilities and programs.</li>
+                <li>Discounts on classes and events.</li>
+                <li>And more.</li>
+                <li>Contact us to learn more about membership options and to sign up.</li>
+            </ul> 
+        </section>      
+
+        <section class="text-left">
+            <h2>Expert Staff and Trainers</h2>
+            <ul><li>
+                Our staff and trainers are dedicated to helping you achieve your
+                fitness and wellness goals.
+			</li></ul>
+        </section>
+
+        <section class="text-left">
+            <h2>Visit Us Today!</h2>
+            <ul><li>
+                Whether you're a seasoned athlete or just starting out, we have
+                something for everyone at the Brandeis Sports Complex. Come
+                check us out today!
+			</li></ul>
+            <a href="http://localhost:3000/contact" class="button"
+                >Learn More</a
+            >
+        </section>
+
+        <section><%- include('./programs/customizedPrograms')%></section>
+
+        <section>
+            <h2>Facilities</h2>
+            <ul>
+                <% facilities.forEach(function(facility) { %>
+                <li>
+                    <h3><%= facility.name %></h3>
+                    <div class="facility-images">
+                        <% facility.images.forEach(function(image) { %>
+                        <img src="<%= image %>" alt="<%= facility.name %>" />
+                        <% }); %>
+                    </div>
+                    <p><%= facility.description %></p>
+                </li>
+                <% }); %>
+            </ul>
+        </section>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $(".facility-images").each(function () {
+                    var images = $(this).find("img");
+                    var currentIndex = 0;
+
+                    function showImage(n) {
+                        images.hide();
+                        images.eq(n).show();
+                        currentIndex = n;
+                    }
+
+                    function nextImage() {
+                        var nextIndex = (currentIndex + 1) % images.length;
+                        showImage(nextIndex);
+                    }
+
+                    function prevImage() {
+                        var prevIndex =
+                            (currentIndex + images.length - 1) % images.length;
+                        showImage(prevIndex);
+                    }
+
+                    $(this).append(
+                        '<div class="facility-nav"><button class="prev-btn">&#10094;</button><button class="next-btn">&#10095;</button></div>'
+                    );
+                    $(this)
+                        .find(".prev-btn")
+                        .click(function () {
+                            prevImage();
+                        });
+                    $(this)
+                        .find(".next-btn")
+                        .click(function () {
+                            nextImage();
+                        });
+
+                    showImage(currentIndex);
+                });
+            });
+        </script>
+    <section>
+        <h2>Events</h2>
+        <ul>
+            <% events.forEach(function(event) { %>
+            <li>
+                <h3><%= event.name %></h3>
+                <div class="event-images">
+                    <% event.images.forEach(function(image) { %>
+                    <img src="<%= image %>" alt="<%= event.name %>" />
+                    <% }); %>
+                </div>
+                <p><%= event.name %></p>
+                <p><%= new Date(event.date).toLocaleDateString()%></p>
+            </li>
+            <% }); %>
+        </ul>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".event-images").each(function () {
+                var images = $(this).find("img");
+                var currentIndex = 0;
+
+                function showImage(n) {
+                    images.hide();
+                    images.eq(n).show();
+                    currentIndex = n;
+                }
+
+                function nextImage() {
+                    var nextIndex = (currentIndex + 1) % images.length;
+                    showImage(nextIndex);
+                }
+
+                function prevImage() {
+                    var prevIndex =
+                        (currentIndex + images.length - 1) % images.length;
+                    showImage(prevIndex);
+                }
+
+                $(this).append(
+                    '<div class="facility-nav"><button class="prev-btn">&#10094;</button><button class="next-btn">&#10095;</button></div>'
+                );
+                $(this)
+                    .find(".prev-btn")
+                    .click(function () {
+                        prevImage();
+                    });
+                $(this)
+                    .find(".next-btn")
+                    .click(function () {
+                        nextImage();
+                    });
+
+                showImage(currentIndex);
+            });
+        });
+    </script>
+    
+    <h2>Memberships</h2>
+    <table>
+        <thead>
+          <tr>
+            <th>Membership Type</th>
+            <th>Duration</th>
+            <th>Price</th>
+            <% if (user || (user && user.isAdmin)) { %>
+            <th>Actions</th>
+            <% } %>
+          </tr>
+        </thead>
+        <tbody>
+          <% memberships.forEach(membership => { %>
+            <tr>
+              <td><%= membership.type %></td>
+              <td><%= membership.duration %> days</td>
+              <td>$<%= membership.price %></td>
+              <% if (user && user.isAdmin) { %>
+              <td>
+                <!--
+                <a class="btn btn-info btn-sm" href="/memberships/<%= membership._id %>/show">Show </a>
+                -->
+                <a class="btn btn-primary btn-sm" href="/memberships/<%= membership._id %>/edit">Edit </a>
+                <a class="btn btn-danger btn-sm" href="/memberships/<%= membership._id %>?_method=DELETE">Delete </a>
+                
+              </td>
+              <% } else if (user) { %>
+              <td>
+                
+                <form action="/memberships/<%= membership._id %>/buy" method="POST">
+                  <button type="submit" class="btn btn-primary btn-sm">Buy Membership</button>
+                </form>
+              </td>
+              <% } %>
+            </tr>
+          <% }) %> <!-- Close the forEach loop -->
+        </tbody>
+      </table>
+      <div class="gallery">
+        <img src="http://localhost:3000/images/membership/01.jpg" alt="Photo 1">
+        <img src="http://localhost:3000/images/membership/02.jpg" alt="Photo 2">
+        <img src="http://localhost:3000/images/membership/03.jpeg" alt="Photo 3">
+        <img src="http://localhost:3000/images/membership/04.jpeg" alt="Photo 4">
+      </div>
+</div>
+</section>
+    

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/membershipsStyle.css">
+  <title><%= membership.type %></title>
+</head>
+<body>
+  <% if (user && user.isAdmin) { %>
+    <div class="memberships-buttons">
+      <a href="/memberships/new">Add New Membership Package</a>
+    </div>
+  <% } %>
+
+  <h1><%= membership.type %></h1>
+  <h3>Duration: <%= membership.duration %> days</h3>
+
+  <p>Price: $<%= membership.price %></p>
+  
+  <% if (user && user.isAdmin) { %>
+    <ul>
+      <% memberships.forEach(function(mem) { %>
+        <li><a href="/memberships/<%= mem._id %>/edit"><%= mem.type %></a></li>
+      <% }); %>
+    </ul>
+  
+    <div class="memberships-buttons">
+      <a href="/memberships/<%= membership._id %>/edit">Edit Membership Package</a>
+      <a href="/memberships/<%= membership._id %>/delete?_method=DELETE" onclick="return confirm('Are you sure you want to delete this membership package?');">Delete Membership Package</a>
+    </div>
+  <% } %>
+
+  <a href="/memberships">Back to Memberships</a>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<%- contentFor('headerCss')%>
+<link rel="stylesheet" href="/css/membershipStyle.css">
+
+<%- contentFor('headerSEO') %>
+<meta name="description" content="Brandeis Sport Complex offers a membership that entitles you to a variety of lunchtime programs, faculty-led lecture series, and fun activities. If you are interested, don’t hesitate to join us by simply filling out a signup form.">
+<meta name="keywords" content="membership, options, discount, sign up, financial aids, Annual Comprehensive, Lecture & Activities, Seasonal Comprehensive">
+
+<%- contentFor('body')%>
+<h1>Membership Options</h1>
+<div class="gallery">
+  <img src="http://localhost:3000/images/membership/01.jpg" alt="Photo 1">
+  <img src="http://localhost:3000/images/membership/02.jpg" alt="Photo 2">
+  <img src="http://localhost:3000/images/membership/03.jpeg" alt="Photo 3">
+  <img src="http://localhost:3000/images/membership/04.jpeg" alt="Photo 4">
+  <img src="http://localhost:3000/images/membership/05.jpg" alt="Photo 5">
+  <img src="http://localhost:3000/images/membership/06.jpg" alt="Photo 6">
+  <img src="http://localhost:3000/images/membership/07.jpg" alt="Photo 7">
+  <img src="http://localhost:3000/images/membership/08.jpg" alt="Photo 8">
+</div>
+<p>You may become a Brandeis Sports Center member at any time. Brandeis Sports Center courses and activities are for members only. The one exception to this policy is the Brandeis Faculty Seminars, which are open to the public for a fee.</p>
+
+<h2>Lecture and Activities Memberships</h2>
+<p>This membership entitles you to a variety of lunchtime programs, faculty-led lecture series, a discount on Brandeis Faculty Seminars, and convenient parking. This membership includes frequent member-run discussion groups, film screenings, a writers' guild, and group outings to exciting educational, entertainment, and dining destinations in Greater Boston. Lecture and Activities Memberships are available in six- or twelve-month durations.</p>
+
+<h3>Membership Options</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Membership Type</th>
+      <th>Duration</th>
+      <th>Price</th>
+      <% if (user || (user && user.isAdmin)) { %>
+      <th>Actions</th>
+      <% } %>
+    </tr>
+  </thead>
+  <tbody>
+    <% memberships.forEach(membership => { %>
+      <tr>
+        <td><%= membership.type %></td>
+        <td><%= membership.duration %> days</td>
+        <td>$<%= membership.price %></td>
+        <% if (user && user.isAdmin) { %>
+        <td>
+          <!--
+          <a class="btn btn-info btn-sm" href="/memberships/<%= membership._id %>/show">Show </a>
+          -->
+          <a class="btn btn-primary btn-sm" href="/memberships/<%= membership._id %>/edit">Edit </a>
+          <a class="btn btn-danger btn-sm" href="/memberships/<%= membership._id %>?_method=DELETE">Delete </a>
+          
+        </td>
+        <% } else if (user) { %>
+        <td>
+          
+          <form action="/memberships/<%= membership._id %>/buy" method="POST">
+            <button type="submit" class="btn btn-primary btn-sm">Buy Membership</button>
+          </form>
+        </td>
+        <% } %>
+      </tr>
+    <% }) %> <!-- Close the forEach loop -->
+  </tbody>
+</table>
+
+<!-- Add New Membership button for admin -->
+<% if (user && user.isAdmin) { %>
+  <a href="/memberships/new" class="btn btn-primary btn-sm">Add New Membership</a>
+<% } %>
+
+<p>*Special discounted rate of $200 available for Waltham residents</p>

@@ -1,0 +1,17 @@
+<h1>Edit Program</h1>
+<%- include('./form.partial.ejs', {postLink: '/programs/edit/' + program._id})
+%>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      let program = <%- JSON.stringify(program) %>;
+
+      // Set the values of the form fields to sample values
+      Object.keys(program).forEach(function (key) {
+        const inputElement = document.getElementById(key);
+        if (inputElement) {
+          inputElement.value = program[key]
+          }
+        })
+      });
+</script>

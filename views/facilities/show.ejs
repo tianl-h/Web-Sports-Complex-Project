@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/facilitiesStyle.css">
+  <title><%= facility.name %></title>
+</head>
+<body>
+  <% if (user && user.isAdmin) { %>
+    <div class="facilities-button">
+      <a href="/facilities/new">Add New Facility</a>
+    </div>
+  <% } %>
+
+  <h1><%= facility.name %></h1>
+  <h3>Type: <%= facility.type %></h3>
+
+  <p>Description: <%= facility.description %></p>
+
+  <div class="facility-images">
+    <% facility.images.forEach(function(image) { %>
+      <img src="<%= image %>" alt="<%= facility.name %> image" class="facility-image">
+    <% }); %>
+  </div>
+  
+  <% if (user && user.isAdmin) { %>
+    <ul>
+      <% facilities.forEach(function(fac) { %>
+        <li><a href="/facilities/<%= fac._id %>/edit"><%= fac.name %></a></li>
+      <% }); %>
+    </ul>
+  
+    <div class="facility-button">
+      <a href="/facilities/<%= facility._id %>/edit">Edit Facility</a>
+      <a href="/facilities/<%= facility._id %>/delete?_method=DELETE" onclick="return confirm('Are you sure you want to delete this facility?');">Delete Facility</a>
+    </div>
+  <% } %>
+
+  <a href="/facilities">Back to Facilities</a>
+</body>
+</html>

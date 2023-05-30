@@ -1,0 +1,86 @@
+<%- contentFor('headerCss')%>
+  <link rel="stylesheet" href="/css/programs.css">
+
+<%- contentFor('headerSEO')%>
+<meta name="description" content="Get fit and achieve your fitness goals with our personal training and group exercise programs at Brandeis University. Our certified trainers offer affordable and convenient sessions for students, faculty, and staff. Check out our schedule and pricing today.">
+<meta name="keywords" content="personal training, fitness, group exercise, Brandeis University">
+
+<%- contentFor('body')%>
+<div class="container">
+  <!-- <%- include('./customizedPrograms')%> -->
+
+
+<h1>Personal Training</h1>
+<hr>
+<div class="row">
+<div class="col-md-6">
+<div class="panel panel-default">
+  <div class="panel-heading">Personal Trainer Pricing</div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Class</th>
+          <th>Session</th>
+          <th>Solo</th>
+          <th>Dual</th>
+          <th>Quad</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for (var i = 0; i < personalTrainerPricing.length; i++) { %>
+          <tr <% if (i % 2 == 0) { %>class="table-secondary"<% } %>>
+            <td><%= personalTrainerPricing[i].class %></td>
+            <td><%= personalTrainerPricing[i].session %></td>
+            <td><%= personalTrainerPricing[i].solo %></td>
+            <td><%= personalTrainerPricing[i].dual %></td>
+            <td><%= personalTrainerPricing[i].quad %></td>
+          </tr>
+        <% } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+  <div class="col-md-6">
+    <br>
+    Personal training offers Brandeis students, faculty, and staff a convenient and affordable way to achieve their fitness goals. Our trainers are nationally certified student employees that will assist you in achieving all of your fitness goals.
+    Personal training sessions are offered in solo, dual, and quad groupings. All sessions are a one-hour experience between client(s) and trainer. Solo sessions are tailored to the unique goals of the client.
+    For the dual and quad groupings, pairs or foursomes will be supervised through a single workout. It is therefore recommended that people interested in the dual or quad groupings have similar fitness goals.
+    In addition to personal training services, fitness assessments and weight room orientations are also available.
+    <b>To schedule a training session, or for more information, please contact Fitness Coordinator Kat Page. (<a href="mailto:kpage@brandeis.edu">kpage@brandeis.edu</a>)</b>
+  </div>
+  <br>
+</div>
+<h1>Group Exercise and Personal Training Staff</h1>
+<hr>
+<div class="row">
+  <% for (var i = 0; i < staff.length; i++) { %>
+    <div class="col-6 col-lg-4 text-center instructor-container">
+      <div class="thumbnail">
+        <img class="img-fluid instructor" src="<%= staff[i] %>" alt="instructor <%= i + 1 %>">
+      </div>
+    </div>
+
+  <% } %>
+</div>
+
+
+<h1>GROUP EXERCISE</h1>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <img src="/images/programs/schedule.jpeg" alt="workout class schedule" class="workout-schedule">
+  </div>
+  <!-- <div class="col-xs-12">
+    <ul class="list-group">
+      <% for (var i = 0; i < fitnessClasses.length; i++) { %>
+        <li class="list-group-item"><h3><%= fitnessClasses[i].class %></h3><%= fitnessClasses[i].description %></li>
+      <% } %>
+    </ul>
+  </div>
+</div> -->
+<%- include('./customizedPrograms')%>
+</div>

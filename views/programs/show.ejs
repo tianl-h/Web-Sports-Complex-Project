@@ -1,0 +1,21 @@
+<h1>Show program</h1>
+<br />
+<%- include('./show.partial.ejs', {data: { name: program.name, description:
+program.description, schedule: program.schedule, instructor:
+program.instructor}}) %>
+<td>
+    <a href="/programs" class="btn btn-info btn-sm"> Back </a>
+    <% if (user && user.isAdmin) { %>
+    <a href="/programs/edit/<%= program._id %>" class="btn btn-primary btn-sm">
+        Edit
+    </a>
+    <% } %> <% if (user && user.isAdmin) { %>
+    <a
+        href="/programs/<%= program._id %>?_method=DELETE"
+        class="btn btn-danger btn-sm"
+        onclick="return confirm('Are you sure you want to delete this record?')"
+    >
+        Delete
+    </a>
+    <% } %>
+</td>

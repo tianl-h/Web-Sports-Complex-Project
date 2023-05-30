@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/events.css">
+  <title><%= event.name %></title>
+</head>
+<body>
+  <% if (user && user.isAdmin) { %>
+    <div class="event-button">
+      <a href="/events/new">Add New Event</a>
+    </div>
+  <% } %>
+
+  <h1><%= event.name %></h1>
+  <h3>Date: <%= new Date(event.date).toLocaleDateString() %></h3>
+  <h3>Time: <%= event.time %></h3>
+  <p>Description: <%= event.description %></p>
+
+  <div class="event-images">
+    <% event.images.forEach(function(image) { %>
+      <img src="<%= image %>" alt="<%= event.name %> image" class="event-image">
+    <% }); %>
+  </div>
+  
+  <% if (user && user.isAdmin) { %>
+    <ul>
+      <% events.forEach(function(e) { %>
+        <li><a href="/events/<%= event._id %>/edit"><%= e.name %></a></li>
+      <% }); %>
+    </ul>
+  
+    <div class="event-button">
+      <a href="/events/<%= event._id %>/edit">Edit Event</a>
+      <a href="/events/<%= event._id %>/delete?_method=DELETE" onclick="return confirm('Are you sure you want to delete this event?');">Delete Event</a>
+    </div>
+  <% } %>
+
+  <a href="/events">Back to Events</a>
+</body>
+</html>

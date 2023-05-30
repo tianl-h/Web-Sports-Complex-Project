@@ -1,0 +1,90 @@
+<%- contentFor('headerCss')%>
+  <link rel="stylesheet" href="/css/membershipStyle.css">
+
+<%- contentFor('headerSEO') %>
+<meta name="description" content="Brandeis Sport Complex offers an membership that entitles you to a variety of lunchtime programs, faculty-led lecture series and fun activities. If you are interested, don’t hesitate to join us by simply filling out a signup form.">
+<meta name="keywords" content="membership, options, discount, sign up, financial aids, Annual Comprehensive, Lecture & Activities, Seasonal Comprehensive">
+
+<%- contentFor('body')%>
+<h1>Membership Options</h1>
+<div class="gallery">
+  <img src="http://localhost:3000/images/membership/01.jpg" alt="Photo 1">
+  <img src="http://localhost:3000/images/membership/02.jpg" alt="Photo 2">
+  <img src="http://localhost:3000/images/membership/03.jpeg" alt="Photo 3">
+  <img src="http://localhost:3000/images/membership/04.jpeg" alt="Photo 4">
+  <img src="http://localhost:3000/images/membership/05.jpg" alt="Photo 5">
+  <img src="http://localhost:3000/images/membership/06.jpg" alt="Photo 6">
+  <img src="http://localhost:3000/images/membership/07.jpg" alt="Photo 7">
+  <img src="http://localhost:3000/images/membership/08.jpg" alt="Photo 8">
+</div>
+  <p>You may become a Brandeis Sports Center member at any time. Brandeis Sports Center courses and activities are for members only. The one exception to this policy is the Brandeis Faculty Seminars, which are open to the public for a fee.</p>
+  
+  <h2>Lecture and Activities Memberships</h2>
+  <p>This membership entitles you to a variety of lunchtime programs, faculty-led lecture series, a discount on Brandeis Faculty Seminars and convenient parking. This membership includes frequent member-run discussion groups, film screenings, a writers' guild, and group outings to exciting educational, entertainment and dining destinations in Greater Boston. Lecture and Activities Memberships are available in six or twelve month durations.</p>
+  
+  <h3>Membership Level</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Membership Type</th>
+        <th>Cost</th>
+        <th>10 week Study Groups Included</th>
+        <th>Discount on Brandeis Faculty Seminars</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Annual Comprehensive</td>
+        <td>$775</td>
+        <td>YES</td>
+        <td>50%</td>
+      </tr>
+      <tr>
+        <td>Annual Lecture & Activities</td>
+        <td>$500</td>
+        <td>NO</td>
+        <td>50%</td>
+      </tr>
+      <tr>
+        <td>Seasonal Comprehensive</td>
+        <td>$410</td>
+        <td>YES</td>
+        <td>25%</td>
+      </tr>
+      <tr>
+        <td>Seasonal Lecture & Activities*</td>
+        <td>$265</td>
+        <td>NO</td>
+        <td>25%</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <p>*Special discounted rate of $200 available for Waltham residents</p>
+  
+  <h3>Financial Aid</h3>
+  <p>Need-based financial aid is available. You may apply for need-based financial aid during the digital registration process, with the opportunity to apply for a 25% or 50% reduction in cost.</p>
+  
+  <h2>Sign Up</h2>
+  <p>Ready to become a Brandeis Sports Center member? Great! <br>
+    To sign up, simply fill out the form below with your name, email, and preferred membership type. Don't miss out on the opportunity to join our vibrant community of sports and fitness enthusiasts!"</p>
+  <form action="/membership/signup" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br>
+    
+    <label for="membershipType">Membership Type:</label>
+    <select id="membershipType" name="membershipType" required>
+      <option value="">Choose a membership type</option>
+      <option value="annualComprehensive">Annual Comprehensive</option>
+      <option value="annualLectureActivities">Annual Lecture & Activities</option>
+      <option value="seasonalComprehensive">Seasonal Comprehensive</option>
+      <option value="seasonalLectureActivities">Seasonal Lecture & Activities</option>
+    </select><br>
+
+    <input type="submit" value="Submit">
+</form>
+
+   

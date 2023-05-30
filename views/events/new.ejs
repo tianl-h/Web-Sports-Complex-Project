@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add New Event</title>
+</head>
+<body>
+  <h1>Add New Event</h1>
+
+  <form action="/events/create" method="POST" enctype="multipart/form-data">
+    <label for="name">Event Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+    <br>
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" required></textarea><br><br>
+    <br>
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" required><br><br>
+    <br>
+    <label for="time">Time:</label>
+    <input type="time" id="time" name="time" required><br><br> 
+    <br>
+    <label for="location">Location:</label>
+    <input type="text" id="location" name="location" required><br><br>
+    <br>
+    <label for="images">Images:</label>
+    <input type="file" name="images" id="images" accept="image/*" multiple>
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+  
+  <a href="/events">Back to events</a>
+</body>
+</html>

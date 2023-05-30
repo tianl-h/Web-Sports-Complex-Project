@@ -1,0 +1,55 @@
+<h2>
+    Customized Programs <% if (user && user.isAdmin) { %>
+    <a class="btn btn-success float-right" href="/programs/create">
+        + Add New
+    </a>
+    <% } %>
+</h2>
+<br />
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Schedule</th>
+                <th>Instructor</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% programs.forEach(function(program) { %>
+            <tr>
+                <td><%= program.name %></td>
+                <td><%= program.description %></td>
+                <td><%= program.schedule %></td>
+                <td><%= program.instructor %></td>
+                <td>
+                    <a
+                        href="/programs/show/<%= program._id %>"
+                        class="btn btn-info btn-sm"
+                    >
+                        Show
+                    </a>
+                    <% if (user && user.isAdmin) { %>
+                    <a
+                        href="/programs/edit/<%= program._id %>"
+                        class="btn btn-primary btn-sm"
+                    >
+                        Edit
+                    </a>
+                    <% } %> <% if (user && user.isAdmin) { %>
+                    <a
+                        href="/programs/<%= program._id %>?_method=DELETE"
+                        class="btn btn-danger btn-sm"
+                        onclick="return confirm('Are you sure you want to delete this record?')"
+                    >
+                        Delete
+                    </a>
+                    <% } %>
+                </td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
