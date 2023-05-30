@@ -1,0 +1,54 @@
+/* Header */
+h1 {
+    text-align: center;
+    /* margin: 1rem 0; */
+    padding: 0;
+}
+
+/* Showcase image section */
+#showcase {
+    background-image: url('http://localhost:3000/images/brandeis_athletics.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#showcase h1 {
+    font-size: 2.5rem;
+    color: #144272;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+#showcase p {
+    font-size: 2.5rem;
+    color: white;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#showcase h1 {
+    font-size: 5rem;
+    margin-bottom: 0;
+}
+
+#showcase p {
+    font-size: 2rem;
+    margin-top: 1rem;
+}
+
+/* Content */
+p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin: 1.5rem auto;
+    max-width: 800px;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+  

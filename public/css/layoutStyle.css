@@ -1,0 +1,162 @@
+header {
+    padding: 20px;
+}
+
+header img {
+    height: 170px;
+    width: auto;
+    float: left;
+    margin-left: 30px;
+}
+
+.header-text-container {
+    text-align: center;
+    color: #173672;
+}
+
+.header-text-container h1 {
+    font-size: 4rem;
+    margin-top: 5px;
+}
+
+.header-text-container h2 {
+    font-size: 3rem;
+}
+
+.navbar {
+    font-weight: bold;
+    background-color: #144272;
+}
+
+.navbar-toggler {
+    background-color: white !important;
+}
+
+/* Universal Selector */
+* {
+    box-sizing: border-box;
+}
+
+/* Style the Body */
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Arial;
+    background: #f1f1f1;
+    color: #144272;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin: 1rem 0;
+}
+
+/* Main Section */
+/* One column that floats next to each other as required */
+.column {
+    width: 100%;
+    padding: 15px;
+    background-color: #f1f1f1;
+}
+
+/*!*Style images size in general*!*/
+/*img {*/
+/*    width: 500px;*/
+/*    height: 180px;*/
+/*}*/
+
+/* Style all font awesome icons */
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+    opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+main {
+    margin-bottom: 80px;
+}
+
+/* Social Media*/
+.fa-facebook .fa-instagram .fa-linkedin .a-youtube .fa-twitter {
+    background: #3b5998;
+    color: white;
+}
+
+footer {
+    background-color: #bdcdd6;
+    color: #205295;
+    padding: 10px;
+    font-size: 16px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+}
+
+footer .footer-text {
+    display: inline-block;
+    margin: 10px 30px;
+}
+
+footer .fa-brands {
+    color: #205295;
+    margin-right: 20px;
+    font-size: x-large;
+    padding: 10px;
+}
+
+footer .fa-brands:hover {
+    background-color: #2c74b3;
+    color: white;
+    text-decoration: none;
+}
+
+footer .social-media {
+    display: inline;
+    float: right;
+}
+/* Style the top navigation bar */
+.flex-container2 {
+    background-color: #144272;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+/* Style the nav links-One contextual selector rule*/
+.flex-container2 a {
+    display: block;
+    color: #f2f2f2;
+    padding: 12px 16px;
+    text-decoration: none;
+}
+
+/* Responsive layout - makes a one column layout instead of a row layout */
+@media (max-width: 800px) {
+    .flex-container {
+        flex-direction: column;
+    }
+}
+
+/* Responsive layout - makes a one column layout instead of a row layout */
+@media (max-width: 800px) {
+    .flex-container2 {
+        flex-direction: column;
+    }
+}
